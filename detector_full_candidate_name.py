@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
+
 
 """
 Project Guardian 2.0 — PII Detector & Redactor
@@ -174,7 +174,7 @@ def process_record(obj: Dict[str, Any]) -> Tuple[Dict[str, Any], bool]:
     do_b = b_count >= 2
     is_pii = a_hit or do_b
 
-    # 🚨 Force email-alone case to NOT be PII
+    #  Force email-alone case to NOT be PII
     if flags["email"] and not (flags["name"] or flags["address"] or flags["device_or_ip"]):
         is_pii = False
         do_b = False  # Ensure B-class redaction is also disabled
@@ -215,3 +215,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
